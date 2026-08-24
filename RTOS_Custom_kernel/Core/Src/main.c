@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Custom_RTOS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,6 +55,38 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+uint32_t stack_ml1[40];
+OS_Thread ml1;
+void main_loop1(void)
+{
+	while(1)
+	{
+		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
+		  HAL_Delay(100);
+	}
+}
+
+uint32_t  stack_ml2[40];
+OS_Thread ml2;
+void main_loop2(void)
+{
+	while(1)
+	{
+		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
+		  HAL_Delay(100);
+	}
+}
+
+uint32_t stack_il[40];
+OS_Thread il;
+void idle_loop(void)
+{
+	while(1)
+	{
+		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
+		  HAL_Delay(100);
+	}
+}
 /* USER CODE END 0 */
 
 /**
@@ -74,7 +106,11 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+  OS_init();
 
+  OS_Thread_Start( &ml1, &main_loop1, stack_ml1, sizeof(stack_ml1));
+  OS_Thread_Start( &ml2, &main_loop2, stack_ml2, sizeof(stack_ml2));
+  OS_Thread_Start( &il , &idle_loop , stack_il , sizeof(stack_il) );
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -87,11 +123,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  main_loop1();
+  main_loop2();
+  idle_loop();
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -163,9 +203,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(On_Board_LED_GPIO_Port, On_Board_LED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : On_Board_LED_Pin */
   GPIO_InitStruct.Pin = On_Board_LED_Pin;
@@ -179,6 +223,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(User_Button_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB12 PB13 PB14 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 

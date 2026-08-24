@@ -1,0 +1,6 @@
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/build/Debug/CMakeFiles/RTOS_Custom_kernel.dir
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/build/Debug/CMakeFiles/edit_cache.dir
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/build/Debug/CMakeFiles/rebuild_cache.dir
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/build/Debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/build/Debug/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/build/Debug/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
