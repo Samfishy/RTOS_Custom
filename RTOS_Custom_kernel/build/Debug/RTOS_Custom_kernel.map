@@ -1356,6 +1356,8 @@ Discarded input sections
                 0x00000000       0x50 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .text.HAL_GetTickFreq
                 0x00000000       0x18 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .text.HAL_Delay
+                0x00000000       0x48 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .text.HAL_SuspendTick
                 0x00000000       0x20 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .text.HAL_ResumeTick
@@ -1567,9 +1569,11 @@ Discarded input sections
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .text          0x00000000        0x0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .data          0x00000000        0x0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .bss.idle_th   0x00000000        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .debug_macro   0x00000000      0xad8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .debug_macro   0x00000000      0x28f CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .debug_macro   0x00000000       0x2e CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
@@ -1606,6 +1610,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x85 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .debug_macro   0x00000000       0x89 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
@@ -1683,6 +1688,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x89 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
@@ -1992,9 +1998,11 @@ Discarded input sections
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .group         0x00000000        0xc CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .text          0x00000000        0x0 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .data          0x00000000        0x0 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .bss           0x00000000        0x0 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .bss.stack_il  0x00000000       0xa0 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .debug_macro   0x00000000      0xad8 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .debug_macro   0x00000000      0x28f CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .debug_macro   0x00000000       0x2e CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
@@ -2032,6 +2040,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x89 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .debug_macro   0x00000000       0x10 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .data          0x00000000        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .bss           0x00000000        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .data          0x00000000        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
@@ -2501,7 +2510,7 @@ LOAD /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.g
                 0x08000000                g_pfnVectors
                 0x08000198                        . = ALIGN (0x4)
 
-.text           0x08000198     0x17ec
+.text           0x08000198     0x194c
                 0x08000198                        . = ALIGN (0x4)
  *(.text)
  .text          0x08000198       0x40 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
@@ -2568,213 +2577,219 @@ LOAD /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.g
  .text.HAL_GetTick
                 0x08001374       0x18 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
                 0x08001374                HAL_GetTick
- .text.HAL_Delay
-                0x0800138c       0x48 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x0800138c                HAL_Delay
  .text.main_loop1
-                0x080013d4       0x1c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x080013d4                main_loop1
+                0x0800138c       0x1c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x0800138c                main_loop1
  .text.main_loop2
-                0x080013f0       0x1c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x080013f0                main_loop2
- .text.idle_loop
-                0x0800140c       0x1c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x0800140c                idle_loop
- .text.main     0x08001428       0x6c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x08001428                main
+                0x080013a8       0x20 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x080013a8                main_loop2
+ .text.main_loop3
+                0x080013c8       0x20 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x080013c8                main_loop3
+ .text.main     0x080013e8       0x68 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x080013e8                main
  .text.SystemClock_Config
-                0x08001494       0xd0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x08001494                SystemClock_Config
+                0x08001450       0xd0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x08001450                SystemClock_Config
  .text.MX_GPIO_Init
-                0x08001564      0x10c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x08001520      0x10c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .text.Error_Handler
-                0x08001670        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x08001670                Error_Handler
+                0x0800162c        0xc CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x0800162c                Error_Handler
  .text.NMI_Handler
-                0x0800167c        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
-                0x0800167c                NMI_Handler
+                0x08001638        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08001638                NMI_Handler
  .text.HardFault_Handler
-                0x08001684        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08001684                HardFault_Handler
+                0x08001640        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08001640                HardFault_Handler
  .text.MemManage_Handler
-                0x0800168c        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
-                0x0800168c                MemManage_Handler
+                0x08001648        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08001648                MemManage_Handler
  .text.BusFault_Handler
-                0x08001694        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08001694                BusFault_Handler
+                0x08001650        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08001650                BusFault_Handler
  .text.UsageFault_Handler
-                0x0800169c        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
-                0x0800169c                UsageFault_Handler
+                0x08001658        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08001658                UsageFault_Handler
  .text.SVC_Handler
-                0x080016a4        0xe CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
-                0x080016a4                SVC_Handler
+                0x08001660        0xe CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08001660                SVC_Handler
  .text.DebugMon_Handler
-                0x080016b2        0xe CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
-                0x080016b2                DebugMon_Handler
+                0x0800166e        0xe CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+                0x0800166e                DebugMon_Handler
  .text.HAL_MspInit
-                0x080016c0       0x50 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
-                0x080016c0                HAL_MspInit
+                0x0800167c       0x50 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x0800167c                HAL_MspInit
  .text.Reset_Handler
-                0x08001710       0x50 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
-                0x08001710                Reset_Handler
+                0x080016cc       0x50 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
+                0x080016cc                Reset_Handler
  .text.Default_Handler
-                0x08001760        0x2 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
-                0x08001760                RTC_Alarm_IRQHandler
-                0x08001760                EXTI2_IRQHandler
-                0x08001760                SPI4_IRQHandler
-                0x08001760                TIM1_CC_IRQHandler
-                0x08001760                DMA2_Stream5_IRQHandler
-                0x08001760                DMA1_Stream5_IRQHandler
-                0x08001760                PVD_IRQHandler
-                0x08001760                SDIO_IRQHandler
-                0x08001760                TAMP_STAMP_IRQHandler
-                0x08001760                EXTI3_IRQHandler
-                0x08001760                TIM1_UP_TIM10_IRQHandler
-                0x08001760                I2C3_ER_IRQHandler
-                0x08001760                EXTI0_IRQHandler
-                0x08001760                I2C2_EV_IRQHandler
-                0x08001760                DMA1_Stream2_IRQHandler
-                0x08001760                FPU_IRQHandler
-                0x08001760                DMA2_Stream2_IRQHandler
-                0x08001760                SPI1_IRQHandler
-                0x08001760                TIM1_BRK_TIM9_IRQHandler
-                0x08001760                DMA2_Stream3_IRQHandler
-                0x08001760                USART6_IRQHandler
-                0x08001760                DMA2_Stream0_IRQHandler
-                0x08001760                TIM4_IRQHandler
-                0x08001760                I2C1_EV_IRQHandler
-                0x08001760                DMA1_Stream6_IRQHandler
-                0x08001760                DMA1_Stream1_IRQHandler
-                0x08001760                TIM3_IRQHandler
-                0x08001760                RCC_IRQHandler
-                0x08001760                Default_Handler
-                0x08001760                EXTI15_10_IRQHandler
-                0x08001760                ADC_IRQHandler
-                0x08001760                DMA1_Stream7_IRQHandler
-                0x08001760                SPI5_IRQHandler
-                0x08001760                TIM5_IRQHandler
-                0x08001760                DMA2_Stream7_IRQHandler
-                0x08001760                I2C3_EV_IRQHandler
-                0x08001760                EXTI9_5_IRQHandler
-                0x08001760                RTC_WKUP_IRQHandler
-                0x08001760                SPI2_IRQHandler
-                0x08001760                DMA1_Stream0_IRQHandler
-                0x08001760                EXTI4_IRQHandler
-                0x08001760                WWDG_IRQHandler
-                0x08001760                TIM2_IRQHandler
-                0x08001760                OTG_FS_WKUP_IRQHandler
-                0x08001760                TIM1_TRG_COM_TIM11_IRQHandler
-                0x08001760                EXTI1_IRQHandler
-                0x08001760                USART2_IRQHandler
-                0x08001760                I2C2_ER_IRQHandler
-                0x08001760                DMA2_Stream1_IRQHandler
-                0x08001760                FLASH_IRQHandler
-                0x08001760                DMA2_Stream4_IRQHandler
-                0x08001760                USART1_IRQHandler
-                0x08001760                OTG_FS_IRQHandler
-                0x08001760                SPI3_IRQHandler
-                0x08001760                DMA1_Stream4_IRQHandler
-                0x08001760                I2C1_ER_IRQHandler
-                0x08001760                DMA2_Stream6_IRQHandler
-                0x08001760                DMA1_Stream3_IRQHandler
- .text.OS_init  0x08001762       0x14 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
-                0x08001762                OS_init
- *fill*         0x08001776        0x2 
- .text.OS_schd  0x08001778       0x30 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
-                0x08001778                OS_schd
+                0x0800171c        0x2 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
+                0x0800171c                RTC_Alarm_IRQHandler
+                0x0800171c                EXTI2_IRQHandler
+                0x0800171c                SPI4_IRQHandler
+                0x0800171c                TIM1_CC_IRQHandler
+                0x0800171c                DMA2_Stream5_IRQHandler
+                0x0800171c                DMA1_Stream5_IRQHandler
+                0x0800171c                PVD_IRQHandler
+                0x0800171c                SDIO_IRQHandler
+                0x0800171c                TAMP_STAMP_IRQHandler
+                0x0800171c                EXTI3_IRQHandler
+                0x0800171c                TIM1_UP_TIM10_IRQHandler
+                0x0800171c                I2C3_ER_IRQHandler
+                0x0800171c                EXTI0_IRQHandler
+                0x0800171c                I2C2_EV_IRQHandler
+                0x0800171c                DMA1_Stream2_IRQHandler
+                0x0800171c                FPU_IRQHandler
+                0x0800171c                DMA2_Stream2_IRQHandler
+                0x0800171c                SPI1_IRQHandler
+                0x0800171c                TIM1_BRK_TIM9_IRQHandler
+                0x0800171c                DMA2_Stream3_IRQHandler
+                0x0800171c                USART6_IRQHandler
+                0x0800171c                DMA2_Stream0_IRQHandler
+                0x0800171c                TIM4_IRQHandler
+                0x0800171c                I2C1_EV_IRQHandler
+                0x0800171c                DMA1_Stream6_IRQHandler
+                0x0800171c                DMA1_Stream1_IRQHandler
+                0x0800171c                TIM3_IRQHandler
+                0x0800171c                RCC_IRQHandler
+                0x0800171c                Default_Handler
+                0x0800171c                EXTI15_10_IRQHandler
+                0x0800171c                ADC_IRQHandler
+                0x0800171c                DMA1_Stream7_IRQHandler
+                0x0800171c                SPI5_IRQHandler
+                0x0800171c                TIM5_IRQHandler
+                0x0800171c                DMA2_Stream7_IRQHandler
+                0x0800171c                I2C3_EV_IRQHandler
+                0x0800171c                EXTI9_5_IRQHandler
+                0x0800171c                RTC_WKUP_IRQHandler
+                0x0800171c                SPI2_IRQHandler
+                0x0800171c                DMA1_Stream0_IRQHandler
+                0x0800171c                EXTI4_IRQHandler
+                0x0800171c                WWDG_IRQHandler
+                0x0800171c                TIM2_IRQHandler
+                0x0800171c                OTG_FS_WKUP_IRQHandler
+                0x0800171c                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0800171c                EXTI1_IRQHandler
+                0x0800171c                USART2_IRQHandler
+                0x0800171c                I2C2_ER_IRQHandler
+                0x0800171c                DMA2_Stream1_IRQHandler
+                0x0800171c                FLASH_IRQHandler
+                0x0800171c                DMA2_Stream4_IRQHandler
+                0x0800171c                USART1_IRQHandler
+                0x0800171c                OTG_FS_IRQHandler
+                0x0800171c                SPI3_IRQHandler
+                0x0800171c                DMA1_Stream4_IRQHandler
+                0x0800171c                I2C1_ER_IRQHandler
+                0x0800171c                DMA2_Stream6_IRQHandler
+                0x0800171c                DMA1_Stream3_IRQHandler
+ .text.idle_loop
+                0x0800171e        0xa CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x0800171e                idle_loop
+ .text.OS_init  0x08001728       0x34 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x08001728                OS_init
+ .text.OS_IdleTsk
+                0x0800175c       0x14 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x0800175c                OS_IdleTsk
+ .text.OS_Delay
+                0x08001770       0x48 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x08001770                OS_Delay
+ .text.OS_Tick  0x080017b8       0x74 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x080017b8                OS_Tick
+ .text.OS_schd  0x0800182c       0x90 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x0800182c                OS_schd
  .text.OS_Thread_Start
-                0x080017a8      0x11a CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
-                0x080017a8                OS_Thread_Start
- *fill*         0x080018c2        0x2 
+                0x080018bc      0x164 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x080018bc                OS_Thread_Start
  .text.PendSV_Handler
-                0x080018c4       0x38 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
-                0x080018c4                PendSV_Handler
+                0x08001a20       0x38 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x08001a20                PendSV_Handler
  .text.SysTick_Handler
-                0x080018fc       0x18 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
-                0x080018fc                SysTick_Handler
- .text.memset   0x08001914       0x10 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
-                0x08001914                memset
+                0x08001a58       0x1c CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x08001a58                SysTick_Handler
+ .text.memset   0x08001a74       0x10 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+                0x08001a74                memset
  .text.__libc_init_array
-                0x08001924       0x48 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
-                0x08001924                __libc_init_array
+                0x08001a84       0x48 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+                0x08001a84                __libc_init_array
  *(.glue_7)
- .glue_7        0x0800196c        0x0 linker stubs
+ .glue_7        0x08001acc        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800196c        0x0 linker stubs
+ .glue_7t       0x08001acc        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0800196c        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x08001acc        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x0800196c        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800196c                _init
- .init          0x08001970        0x8 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08001acc        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08001acc                _init
+ .init          0x08001ad0        0x8 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x08001978        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x08001978                _fini
- .fini          0x0800197c        0x8 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x08001984                        . = ALIGN (0x4)
-                0x08001984                        _etext = .
+ .fini          0x08001ad8        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08001ad8                _fini
+ .fini          0x08001adc        0x8 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x08001ae4                        . = ALIGN (0x4)
+                0x08001ae4                        _etext = .
 
-.vfp11_veneer   0x08001984        0x0
- .vfp11_veneer  0x08001984        0x0 linker stubs
+.vfp11_veneer   0x08001ae4        0x0
+ .vfp11_veneer  0x08001ae4        0x0 linker stubs
 
-.v4_bx          0x08001984        0x0
- .v4_bx         0x08001984        0x0 linker stubs
+.v4_bx          0x08001ae4        0x0
+ .v4_bx         0x08001ae4        0x0 linker stubs
 
-.iplt           0x08001984        0x0
- .iplt          0x08001984        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x08001ae4        0x0
+ .iplt          0x08001ae4        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x08001984       0x10
-                0x08001984                        . = ALIGN (0x4)
+.rodata         0x08001ae4       0x10
+                0x08001ae4                        . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.AHBPrescTable
-                0x08001984       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
-                0x08001984                AHBPrescTable
-                0x08001994                        . = ALIGN (0x4)
+                0x08001ae4       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
+                0x08001ae4                AHBPrescTable
+                0x08001af4                        . = ALIGN (0x4)
 
-.ARM.extab      0x08001994        0x0
-                0x08001994                        . = ALIGN (0x4)
+.ARM.extab      0x08001af4        0x0
+                0x08001af4                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08001994                        . = ALIGN (0x4)
+                0x08001af4                        . = ALIGN (0x4)
 
-.ARM            0x08001994        0x8
-                0x08001994                        . = ALIGN (0x4)
-                0x08001994                        __exidx_start = .
+.ARM            0x08001af4        0x8
+                0x08001af4                        . = ALIGN (0x4)
+                0x08001af4                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08001994        0x8 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x0800199c                        __exidx_end = .
-                0x0800199c                        . = ALIGN (0x4)
+ .ARM.exidx     0x08001af4        0x8 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x08001afc                        __exidx_end = .
+                0x08001afc                        . = ALIGN (0x4)
 
-.preinit_array  0x0800199c        0x0
-                0x0800199c                        . = ALIGN (0x4)
-                0x0800199c                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08001afc        0x0
+                0x08001afc                        . = ALIGN (0x4)
+                0x08001afc                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800199c                        PROVIDE (__preinit_array_end = .)
-                0x0800199c                        . = ALIGN (0x4)
+                0x08001afc                        PROVIDE (__preinit_array_end = .)
+                0x08001afc                        . = ALIGN (0x4)
 
-.init_array     0x0800199c        0x4
-                0x0800199c                        . = ALIGN (0x4)
-                0x0800199c                        PROVIDE (__init_array_start = .)
+.init_array     0x08001afc        0x4
+                0x08001afc                        . = ALIGN (0x4)
+                0x08001afc                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0800199c        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x080019a0                        PROVIDE (__init_array_end = .)
-                0x080019a0                        . = ALIGN (0x4)
+ .init_array    0x08001afc        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x08001b00                        PROVIDE (__init_array_end = .)
+                0x08001b00                        . = ALIGN (0x4)
 
-.fini_array     0x080019a0        0x4
-                0x080019a0                        . = ALIGN (0x4)
+.fini_array     0x08001b00        0x4
+                0x08001b00                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x080019a0        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x08001b00        0x4 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x080019a4                        . = ALIGN (0x4)
-                0x080019a4                        _sidata = LOADADDR (.data)
+                0x08001b04                        . = ALIGN (0x4)
+                0x08001b04                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x080019a4        0x0
- .rel.iplt      0x080019a4        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x08001b04        0x0
+ .rel.iplt      0x08001b04        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x20000000        0xc load address 0x080019a4
+.data           0x20000000        0xc load address 0x08001b04
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -2793,10 +2808,10 @@ LOAD /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.g
                 0x2000000c                        . = ALIGN (0x4)
  *fill*         0x20000009        0x3 
 
-.igot.plt       0x2000000c        0x0 load address 0x080019b0
+.igot.plt       0x2000000c        0x0 load address 0x08001b10
  .igot.plt      0x2000000c        0x0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.tdata          0x2000000c        0x0 load address 0x080019b0
+.tdata          0x2000000c        0x0 load address 0x08001b10
  *(.tdata .tdata.* .gnu.linkonce.td.*)
                 0x2000000c                        . = ALIGN (0x4)
                 0x2000000c                        _edata = .
@@ -2813,7 +2828,7 @@ LOAD /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.g
                 [!provide]                        PROVIDE (__data_source_end = __tdata_source_end)
                 [!provide]                        PROVIDE (__data_source_size = (__data_source_end - __data_source))
 
-.tbss           0x2000000c        0x0 load address 0x080019b0
+.tbss           0x2000000c        0x0 load address 0x08001b10
                 0x2000000c                        _sbss = .
                 0x2000000c                        __bss_start__ = _sbss
  *(.tbss .tbss.*)
@@ -2830,49 +2845,67 @@ LOAD /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.g
                 [!provide]                        PROVIDE (__arm32_tls_tcb_offset = MAX (0x8, __tls_align))
                 [!provide]                        PROVIDE (__arm64_tls_tcb_offset = MAX (0x10, __tls_align))
 
-.bss            0x2000000c      0x214 load address 0x080019b0
+.bss            0x2000000c      0x354 load address 0x08001b10
  *(.bss)
  .bss           0x2000000c       0x1c /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.bss*)
  .bss.uwTick    0x20000028        0x4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
                 0x20000028                uwTick
- .bss.stack_ml1
+ .bss.idle_stack
                 0x2000002c       0xa0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x2000002c                stack_ml1
- .bss.ml1       0x200000cc        0x4 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x200000cc                ml1
+                0x2000002c                idle_stack
+ .bss.stack_ml1
+                0x200000cc       0xa0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x200000cc                stack_ml1
+ .bss.ml1       0x2000016c        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x2000016c                ml1
  .bss.stack_ml2
-                0x200000d0       0xa0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x200000d0                stack_ml2
- .bss.ml2       0x20000170        0x4 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x20000170                ml2
- .bss.stack_il  0x20000174       0xa0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x20000174                stack_il
- .bss.il        0x20000214        0x4 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
-                0x20000214                il
- .bss.OS_Curr   0x20000218        0x4 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
-                0x20000218                OS_Curr
- .bss.OS_Nxt    0x2000021c        0x4 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
-                0x2000021c                OS_Nxt
+                0x20000174       0xa0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x20000174                stack_ml2
+ .bss.ml2       0x20000214        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x20000214                ml2
+ .bss.stack_ml3
+                0x2000021c       0xa0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x2000021c                stack_ml3
+ .bss.ml3       0x200002bc        0x8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+                0x200002bc                ml3
+ .bss.OS_Curr   0x200002c4        0x4 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x200002c4                OS_Curr
+ .bss.OS_Nxt    0x200002c8        0x4 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x200002c8                OS_Nxt
+ .bss.OS_thread_array
+                0x200002cc       0x84 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x200002cc                OS_thread_array
+ .bss.OS_threadnum
+                0x20000350        0x1 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x20000350                OS_threadnum
+ .bss.curr_idx  0x20000351        0x1 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x20000351                curr_idx
+ *fill*         0x20000352        0x2 
+ .bss.OS_ReadySet
+                0x20000354        0x4 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x20000354                OS_ReadySet
+ .bss.il        0x20000358        0x8 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x20000358                il
  *(COMMON)
-                0x20000220                        . = ALIGN (0x4)
-                0x20000220                        _ebss = .
-                0x20000220                        __bss_end__ = _ebss
+                0x20000360                        . = ALIGN (0x4)
+                0x20000360                        _ebss = .
+                0x20000360                        __bss_end__ = _ebss
                 [!provide]                        PROVIDE (__bss_end = .)
                 [!provide]                        PROVIDE (__non_tls_bss_start = ADDR (.bss))
                 [!provide]                        PROVIDE (__bss_start = __tbss_start)
                 [!provide]                        PROVIDE (__bss_size = (__bss_end - __bss_start))
 
 ._user_heap_stack
-                0x20000220      0x600 load address 0x080019b0
-                0x20000220                        . = ALIGN (0x8)
+                0x20000360      0x600 load address 0x08001b10
+                0x20000360                        . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
-                0x20000220                        PROVIDE (_end = .)
-                0x20000420                        . = (. + _Min_Heap_Size)
- *fill*         0x20000220      0x200 
-                0x20000820                        . = (. + _Min_Stack_Size)
- *fill*         0x20000420      0x400 
-                0x20000820                        . = ALIGN (0x8)
+                0x20000360                        PROVIDE (_end = .)
+                0x20000560                        . = (. + _Min_Heap_Size)
+ *fill*         0x20000360      0x200 
+                0x20000960                        . = (. + _Min_Stack_Size)
+ *fill*         0x20000560      0x400 
+                0x20000960                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a:*(*)
@@ -2934,35 +2967,35 @@ LOAD linker stubs
  .comment       0x00000043       0x44 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
  .comment       0x00000043       0x44 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
-.debug_info     0x00000000     0x3dd3
+.debug_info     0x00000000     0x4065
  .debug_info    0x00000000      0x53e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_info    0x0000053e      0x904 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_info    0x00000e42      0x6f9 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_info    0x0000153b      0xcfc cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_info    0x00002237      0x8c4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_info    0x00002afb      0x7f8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
- .debug_info    0x000032f3       0xe8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_info    0x000033db      0x291 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_info    0x0000366c       0x30 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
- .debug_info    0x0000369c      0x54c CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
- .debug_info    0x00003be8       0xe0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_info    0x00003cc8      0x10b /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_info    0x00002afb      0x84c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .debug_info    0x00003347       0xe8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_info    0x0000342f      0x291 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_info    0x000036c0       0x30 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
+ .debug_info    0x000036f0      0x78a CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .debug_info    0x00003e7a       0xe0 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_info    0x00003f5a      0x10b /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
-.debug_abbrev   0x00000000     0x1236
+.debug_abbrev   0x00000000     0x1274
  .debug_abbrev  0x00000000      0x11a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_abbrev  0x0000011a      0x2b6 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_abbrev  0x000003d0      0x1d3 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_abbrev  0x000005a3      0x31d cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_abbrev  0x000008c0      0x24b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_abbrev  0x00000b0b      0x265 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
- .debug_abbrev  0x00000d70       0x47 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_abbrev  0x00000db7       0xd8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_abbrev  0x00000e8f       0x24 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
- .debug_abbrev  0x00000eb3      0x21c CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
- .debug_abbrev  0x000010cf       0x9e /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_abbrev  0x0000116d       0xc9 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_abbrev  0x00000b0b      0x251 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x00000d5c       0x47 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_abbrev  0x00000da3       0xd8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_abbrev  0x00000e7b       0x24 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
+ .debug_abbrev  0x00000e9f      0x26e CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .debug_abbrev  0x0000110d       0x9e /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_abbrev  0x000011ab       0xc9 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
-.debug_aranges  0x00000000      0x490
+.debug_aranges  0x00000000      0x4b0
  .debug_aranges
                 0x00000000       0x28 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_aranges
@@ -2982,14 +3015,14 @@ LOAD linker stubs
  .debug_aranges
                 0x000003e8       0x28 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
  .debug_aranges
-                0x00000410       0x40 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x00000410       0x60 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .debug_aranges
-                0x00000450       0x20 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+                0x00000470       0x20 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
  .debug_aranges
-                0x00000470       0x20 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+                0x00000490       0x20 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
 .debug_rnglists
-                0x00000000      0x33c
+                0x00000000      0x355
  .debug_rnglists
                 0x00000000       0x1a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_rnglists
@@ -3009,13 +3042,13 @@ LOAD linker stubs
  .debug_rnglists
                 0x000002d1       0x19 CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
  .debug_rnglists
-                0x000002ea       0x2c CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+                0x000002ea       0x45 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
  .debug_rnglists
-                0x00000316       0x13 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+                0x0000032f       0x13 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
  .debug_rnglists
-                0x00000329       0x13 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+                0x00000342       0x13 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
-.debug_macro    0x00000000    0x145b5
+.debug_macro    0x00000000    0x145c2
  .debug_macro   0x00000000      0x1b0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_macro   0x000001b0      0xad8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_macro   0x00000c88       0x2e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
@@ -3057,42 +3090,43 @@ LOAD linker stubs
  .debug_macro   0x000138ff      0x1b6 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_macro   0x00013ab5      0x1b0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_macro   0x00013c65      0x210 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_macro   0x00013e75      0x1c9 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
- .debug_macro   0x0001403e       0x1c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
- .debug_macro   0x0001405a      0x1d3 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_macro   0x0001422d      0x1bf CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_macro   0x000143ec      0x1c9 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .debug_macro   0x00013e75      0x1c8 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .debug_macro   0x0001403d       0x1c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .debug_macro   0x00014059       0x10 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .debug_macro   0x00014069      0x1d2 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_macro   0x0001423b      0x1bf CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_macro   0x000143fa      0x1c8 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
 
-.debug_line     0x00000000     0x6408
+.debug_line     0x00000000     0x6516
  .debug_line    0x00000000      0x89c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_line    0x0000089c      0xf25 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_line    0x000017c1      0xc31 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_line    0x000023f2      0xde8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_line    0x000031da      0xb1b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_line    0x00003cf5      0x98b CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
- .debug_line    0x00004680      0x8ff CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_line    0x00004f7f      0x828 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_line    0x000057a7       0x7a CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
- .debug_line    0x00005821      0x901 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
- .debug_line    0x00006122      0x17e /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_line    0x000062a0      0x168 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_line    0x00003cf5      0x988 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .debug_line    0x0000467d      0x8ff CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_line    0x00004f7c      0x828 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_line    0x000057a4       0x7a CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
+ .debug_line    0x0000581e      0xa12 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .debug_line    0x00006230      0x17e /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_line    0x000063ae      0x168 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
-.debug_str      0x00000000    0x7fb10
- .debug_str     0x00000000    0x7fb10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
+.debug_str      0x00000000    0x7fbaf
+ .debug_str     0x00000000    0x7fbaf cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
                               0x7e34a (size before relaxing)
- .debug_str     0x0007fb10    0x7e77e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_str     0x0007fb10    0x7e4c5 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_str     0x0007fb10    0x7eae0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_str     0x0007fb10    0x7ed76 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_str     0x0007fb10    0x7e647 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
- .debug_str     0x0007fb10    0x7e27c CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_str     0x0007fb10    0x7e30b CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_str     0x0007fb10       0xbc CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
- .debug_str     0x0007fb10    0x7e6d4 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
- .debug_str     0x0007fb10      0x211 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_str     0x0007fb10      0x272 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_str     0x0007fbaf    0x7e77e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_str     0x0007fbaf    0x7e4c5 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_str     0x0007fbaf    0x7eae0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_str     0x0007fbaf    0x7ed76 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_str     0x0007fbaf    0x7e671 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
+ .debug_str     0x0007fbaf    0x7e28a CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_str     0x0007fbaf    0x7e30b CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_str     0x0007fbaf       0xbc CMakeFiles/RTOS_Custom_kernel.dir/startup_stm32f411xe.s.obj
+ .debug_str     0x0007fbaf    0x7e7bd CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .debug_str     0x0007fbaf      0x211 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_str     0x0007fbaf      0x272 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
-.debug_frame    0x00000000      0xe44
+.debug_frame    0x00000000      0xecc
  .debug_frame   0x00000000       0x50 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj
  .debug_frame   0x00000050      0x1d8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_frame   0x00000228      0x130 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
@@ -3101,11 +3135,11 @@ LOAD linker stubs
  .debug_frame   0x00000b2c       0xe0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/main.c.obj
  .debug_frame   0x00000c0c       0xc0 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_it.c.obj
  .debug_frame   0x00000ccc       0x34 CMakeFiles/RTOS_Custom_kernel.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_frame   0x00000d00       0x98 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
- .debug_frame   0x00000d98       0x2c /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00000dc4       0x34 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x00000df8       0x20 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_frame   0x00000e18       0x2c /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_frame   0x00000d00      0x120 CMakeFiles/RTOS_Custom_kernel.dir/RTOS/Custom_RTOS.c.obj
+ .debug_frame   0x00000e20       0x2c /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00000e4c       0x34 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00000e80       0x20 /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_frame   0x00000ea0       0x2c /opt/st/stm32cubeide_2.1.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
 
 .debug_line_str
                 0x00000000       0xa0

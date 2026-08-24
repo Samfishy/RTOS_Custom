@@ -55,6 +55,9 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+uint32_t idle_stack[40];
+OS_Thread idle_th;
+
 uint32_t stack_ml1[40];
 OS_Thread ml1;
 void main_loop1(void)
@@ -62,7 +65,7 @@ void main_loop1(void)
 	while(1)
 	{
 		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
-		  HAL_Delay(100);
+		  OS_Delay(200);
 	}
 }
 
@@ -73,18 +76,18 @@ void main_loop2(void)
 	while(1)
 	{
 		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
-		  HAL_Delay(100);
+		  OS_Delay(500);
 	}
 }
 
-uint32_t stack_il[40];
-OS_Thread il;
-void idle_loop(void)
+uint32_t stack_ml3[40];
+OS_Thread ml3;
+void main_loop3(void)
 {
 	while(1)
 	{
 		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
-		  HAL_Delay(100);
+		  OS_Delay(600);
 	}
 }
 /* USER CODE END 0 */
@@ -97,7 +100,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+	OS_init(idle_stack, sizeof(idle_stack));
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -106,11 +109,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  OS_init();
 
-  OS_Thread_Start( &ml1, &main_loop1, stack_ml1, sizeof(stack_ml1));
-  OS_Thread_Start( &ml2, &main_loop2, stack_ml2, sizeof(stack_ml2));
-  OS_Thread_Start( &il , &idle_loop , stack_il , sizeof(stack_il) );
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -128,9 +127,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  main_loop1();
-  main_loop2();
-  idle_loop();
+  OS_Thread_Start( &ml1, &main_loop1, stack_ml1, sizeof(stack_ml1));
+  OS_Thread_Start( &ml2, &main_loop2, stack_ml2, sizeof(stack_ml2));
+  OS_Thread_Start( &ml3, &main_loop3, stack_ml3, sizeof(stack_ml3));
+
 
   while (1)
   {

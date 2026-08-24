@@ -11,18 +11,85 @@
 OS_Thread * volatile OS_Curr;
 OS_Thread * volatile OS_Nxt;
 
-void OS_init(void)
+OS_Thread *OS_thread_array[32+1];
+uint8_t OS_threadnum;
+uint8_t curr_idx;
+uint32_t OS_ReadySet;
+
+uint32_t stack_il[40];
+OS_Thread il;
+
+void idle_loop(void)
+{
+	while(1)
+	{
+		OS_IdleTsk();
+	}
+}
+
+void OS_init(void *stack, uint32_t stack_size)
 {
 	  HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
+	  OS_Thread_Start( &il, &idle_loop, stack, stack_size);
+}
+
+void OS_IdleTsk()
+{
+	while(1)
+	{
+		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	}
+
+}
+
+void OS_Delay(int MsDelay)
+{
+	__disable_irq();
+	OS_Curr->timeout = MsDelay;
+	OS_ReadySet &= ~(1U << (curr_idx - 1U));
+	OS_schd();
+	__enable_irq();
+}
+
+void OS_Tick()
+{
+	uint8_t n;
+	for(n = 1U; n < OS_threadnum; n++)
+	{
+		if(OS_thread_array[n]->timeout != 0)
+		{
+			OS_thread_array[n]->timeout--;
+		}
+		else if(OS_thread_array[n]->timeout == 0)
+		{
+			OS_ReadySet |= (1U << (n-1U));
+		}
+	}
 }
 
 void OS_schd(void)
 {
+	if(OS_ReadySet == 0)
+	{
+		curr_idx = 0;
+	}
+	else
+	{
+		while((OS_ReadySet & (1U << (curr_idx - 1U))) == 0U)
+		{
+			curr_idx++;
+			if(curr_idx == OS_threadnum)
+			{
+				curr_idx = 0;
+			}
+		}
+	}
+	OS_Nxt = OS_thread_array[curr_idx];
+
 	if(OS_Nxt != OS_Curr)
 	{
 		SCB->ICSR = SCB_ICSR_PENDSVSET_Msk;
 	}
-
 }
 
 void OS_Thread_Start(OS_Thread *ot, OS_Thread_Handler th, void *sp_ini,
@@ -52,8 +119,21 @@ void OS_Thread_Start(OS_Thread *ot, OS_Thread_Handler th, void *sp_ini,
 
 	stkLim = (uint32_t *) (((((uint32_t) sp_ini - 1) / 8) + 1) * 8);
 
-	for (sp = sp - 1; sp >= stkLim; --sp) {
+	for (sp = sp - 1; sp >= stkLim; --sp)
+	{
 		*sp = 0xDEAD;
+	}
+
+	if(OS_threadnum < MAX_THREAD)
+	{
+		OS_thread_array[OS_threadnum] = ot;
+
+		if(OS_threadnum > 0)
+		{
+			OS_ReadySet |= (1U << (OS_threadnum - 1u));
+		}
+
+		OS_threadnum++;
 	}
 }
 
@@ -105,6 +185,7 @@ void SysTick_Handler(void)
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
   __disable_irq();
+  OS_Tick();
   OS_schd();
   __enable_irq();
   /* USER CODE END SysTick_IRQn 1 */
