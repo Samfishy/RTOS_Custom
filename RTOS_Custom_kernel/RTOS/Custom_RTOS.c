@@ -10,14 +10,17 @@
 
 OS_Thread * volatile OS_Curr;
 OS_Thread * volatile OS_Nxt;
-
 OS_Thread *OS_thread_array[32+1];
-uint8_t OS_threadnum;
-uint8_t curr_idx;
+
 uint32_t OS_ReadySet;
+uint32_t OS_DelayedSet;
 
 uint32_t stack_il[40];
 OS_Thread il;
+
+int RTOS_init = 0;
+
+#define LOG2(x) (32 -__CLZ(x))
 
 void idle_loop(void)
 {
@@ -27,42 +30,49 @@ void idle_loop(void)
 	}
 }
 
+void OS_start(void)
+{
+	RTOS_init = 1;
+}
+
 void OS_init(void *stack, uint32_t stack_size)
 {
 	  HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
-	  OS_Thread_Start( &il, &idle_loop, stack, stack_size);
+	  OS_Thread_Start( &il, &idle_loop, stack, stack_size, 32);
 }
 
 void OS_IdleTsk()
 {
-	while(1)
-	{
-		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-	}
-
+	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13, 1);
 }
 
 void OS_Delay(int MsDelay)
 {
 	__disable_irq();
 	OS_Curr->timeout = MsDelay;
-	OS_ReadySet &= ~(1U << (curr_idx - 1U));
+	OS_ReadySet   &= ~(1U << (OS_Curr->priro -1));
+	OS_DelayedSet |=  (1U << (OS_Curr->priro -1));
 	OS_schd();
 	__enable_irq();
 }
 
 void OS_Tick()
 {
-	uint8_t n;
-	for(n = 1U; n < OS_threadnum; n++)
+	uint32_t workSet = OS_DelayedSet;
+	while(workSet != 0U)
 	{
-		if(OS_thread_array[n]->timeout != 0)
+		uint8_t next_val = LOG2(workSet);
+		OS_Thread *t = OS_thread_array[next_val];
+
+		if(t != (OS_Thread *)0 && t->timeout != 0)
 		{
-			OS_thread_array[n]->timeout--;
-		}
-		else if(OS_thread_array[n]->timeout == 0)
-		{
-			OS_ReadySet |= (1U << (n-1U));
+			t->timeout--;
+			if(t->timeout == 0)
+			{
+				OS_ReadySet   |=  (1U << (t->priro -1));
+				OS_DelayedSet &= ~(1U << (t->priro -1));
+			}
+			workSet &= ~(1U << (t->priro -1));
 		}
 	}
 }
@@ -71,29 +81,23 @@ void OS_schd(void)
 {
 	if(OS_ReadySet == 0)
 	{
-		curr_idx = 0;
+		OS_Nxt = OS_thread_array[0];
 	}
 	else
 	{
-		while((OS_ReadySet & (1U << (curr_idx - 1U))) == 0U)
-		{
-			curr_idx++;
-			if(curr_idx == OS_threadnum)
-			{
-				curr_idx = 0;
-			}
-		}
+		uint8_t next_val = LOG2(OS_ReadySet);
+		OS_Nxt = OS_thread_array[next_val];
 	}
-	OS_Nxt = OS_thread_array[curr_idx];
 
 	if(OS_Nxt != OS_Curr)
 	{
-		SCB->ICSR = SCB_ICSR_PENDSVSET_Msk;
+		 SCB->ICSR = SCB_ICSR_PENDSVSET_Msk;
 	}
 }
 
 void OS_Thread_Start(OS_Thread *ot, OS_Thread_Handler th, void *sp_ini,
-		uint32_t stkSize) {
+		uint32_t stkSize, uint8_t priro)
+{
 	uint32_t *sp = (uint32_t*) ((((uint32_t) sp_ini + stkSize) / 8) * 8); // for rounding off
 	uint32_t *stkLim;
 
@@ -124,16 +128,13 @@ void OS_Thread_Start(OS_Thread *ot, OS_Thread_Handler th, void *sp_ini,
 		*sp = 0xDEAD;
 	}
 
-	if(OS_threadnum < MAX_THREAD)
+	uint8_t priority = 32 - priro;
+
+	ot->priro = priority;
+	OS_thread_array[priority] = ot;
+	if(priority > 0)
 	{
-		OS_thread_array[OS_threadnum] = ot;
-
-		if(OS_threadnum > 0)
-		{
-			OS_ReadySet |= (1U << (OS_threadnum - 1u));
-		}
-
-		OS_threadnum++;
+		OS_ReadySet |= (1U << (priority - 1));
 	}
 }
 
@@ -184,9 +185,13 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-  __disable_irq();
-  OS_Tick();
-  OS_schd();
-  __enable_irq();
+  if(RTOS_init == 1)
+  {
+	  __disable_irq();
+	  OS_Tick();
+	  OS_schd();
+	  __enable_irq();
+  }
+
   /* USER CODE END SysTick_IRQn 1 */
 }

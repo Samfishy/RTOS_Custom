@@ -64,8 +64,10 @@ void main_loop1(void)
 {
 	while(1)
 	{
-		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
-		  OS_Delay(200);
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 1);
+		  OS_Delay(150);
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
+		  OS_Delay(150);
 	}
 }
 
@@ -75,8 +77,10 @@ void main_loop2(void)
 {
 	while(1)
 	{
-		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
-		  OS_Delay(500);
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 1);
+		  OS_Delay(300);
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 0);
+		  OS_Delay(300);
 	}
 }
 
@@ -86,7 +90,9 @@ void main_loop3(void)
 {
 	while(1)
 	{
-		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 1);
+		  OS_Delay(600);
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 0);
 		  OS_Delay(600);
 	}
 }
@@ -127,10 +133,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  OS_Thread_Start( &ml1, &main_loop1, stack_ml1, sizeof(stack_ml1));
-  OS_Thread_Start( &ml2, &main_loop2, stack_ml2, sizeof(stack_ml2));
-  OS_Thread_Start( &ml3, &main_loop3, stack_ml3, sizeof(stack_ml3));
+  OS_Thread_Start( &ml1, &main_loop1, stack_ml1, sizeof(stack_ml1), 0);
+  OS_Thread_Start( &ml2, &main_loop2, stack_ml2, sizeof(stack_ml2), 1);
+  OS_Thread_Start( &ml3, &main_loop3, stack_ml3, sizeof(stack_ml3), 2);
 
+  OS_start();
 
   while (1)
   {
