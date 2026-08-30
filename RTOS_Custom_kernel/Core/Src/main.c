@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Custom_RTOS.h"
+#include "semaphores.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,7 +43,18 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+Semaphore Signal_1;
 
+uint32_t idle_stack[40];
+
+uint32_t stack_ml1[40];
+OS_Thread ml1;
+
+uint32_t  stack_ml2[40];
+OS_Thread ml2;
+
+uint32_t stack_ml3[40];
+OS_Thread ml3;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -55,45 +67,70 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint32_t idle_stack[40];
-OS_Thread idle_th;
-
-uint32_t stack_ml1[40];
-OS_Thread ml1;
 void main_loop1(void)
 {
 	while(1)
 	{
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 1);
-		  OS_Delay(150);
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
-		  OS_Delay(150);
+		for(int i =0; i < 1000; i ++)
+		{
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 1);
+			for(int i =0; i < 100; i ++)
+			{
+				__NOP();
+			}
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
+			for(int i =0; i < 100; i ++)
+			{
+				__NOP();
+			}
+		}
+		OS_Delay(100);
 	}
 }
 
-uint32_t  stack_ml2[40];
-OS_Thread ml2;
 void main_loop2(void)
 {
 	while(1)
 	{
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 1);
-		  OS_Delay(300);
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 0);
-		  OS_Delay(300);
+		Semaphore_Wait(&Signal_1);
+		for(int i =0; i < 1000; i ++)
+		{
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 1);
+			for(int i =0; i < 200; i ++)
+			{
+				__NOP();
+			}
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 0);
+			for(int i =0; i < 200; i ++)
+			{
+				__NOP();
+			}
+		}
+		OS_Delay(200);
+		Semaphore_Signal(&Signal_1);
 	}
 }
 
-uint32_t stack_ml3[40];
-OS_Thread ml3;
 void main_loop3(void)
 {
 	while(1)
 	{
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 1);
-		  OS_Delay(600);
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 0);
-		  OS_Delay(600);
+		Semaphore_Wait(&Signal_1);
+		for(int i =0; i < 1000; i ++)
+		{
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 1);
+			for(int i =0; i < 300; i ++)
+			{
+				__NOP();
+			}
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 0);
+			for(int i =0; i < 300; i ++)
+			{
+				__NOP();
+			}
+		}
+		OS_Delay(300);
+		Semaphore_Signal(&Signal_1);
 	}
 }
 /* USER CODE END 0 */
@@ -133,6 +170,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  Semaphore_Init(&Signal_1, 1, 1);
+
   OS_Thread_Start( &ml1, &main_loop1, stack_ml1, sizeof(stack_ml1), 0);
   OS_Thread_Start( &ml2, &main_loop2, stack_ml2, sizeof(stack_ml2), 1);
   OS_Thread_Start( &ml3, &main_loop3, stack_ml3, sizeof(stack_ml3), 2);

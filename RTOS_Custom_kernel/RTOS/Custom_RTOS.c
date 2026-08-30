@@ -4,8 +4,6 @@
  *  Created on: 24 Aug 2026
  *      Author: samfishy
  */
-#include "main.h"
-#include "stdint.h"
 #include "Custom_RTOS.h"
 
 OS_Thread * volatile OS_Curr;
@@ -19,8 +17,6 @@ uint32_t stack_il[40];
 OS_Thread il;
 
 int RTOS_init = 0;
-
-#define LOG2(x) (32 -__CLZ(x))
 
 void idle_loop(void)
 {
@@ -43,7 +39,9 @@ void OS_init(void *stack, uint32_t stack_size)
 
 void OS_IdleTsk()
 {
-	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13, 1);
+	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,1);
+	__NOP();
+	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,0);
 }
 
 void OS_Delay(int MsDelay)
@@ -59,6 +57,7 @@ void OS_Delay(int MsDelay)
 void OS_Tick()
 {
 	uint32_t workSet = OS_DelayedSet;
+
 	while(workSet != 0U)
 	{
 		uint8_t next_val = LOG2(workSet);

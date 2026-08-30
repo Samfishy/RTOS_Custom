@@ -8,7 +8,11 @@
 #ifndef RTOS_CUSTOM_KERNEL_RTOS_CUSTOM_RTOS_H_
 #define RTOS_CUSTOM_KERNEL_RTOS_CUSTOM_RTOS_H_
 
+#include "main.h"
+#include "stdint.h"
+
 #define MAX_THREAD 32
+#define LOG2(x) (32 -__CLZ(x))
 
 typedef struct {
 	void *sp;
