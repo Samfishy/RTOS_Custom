@@ -47,6 +47,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
         RTOS/Custom_RTOS.c
         RTOS/semaphores.c
+        RTOS/mutex.c
 )
 
 # Add include paths

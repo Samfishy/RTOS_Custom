@@ -1,0 +1,3 @@
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/mutex.c:13:6:Mutex_init	16	static
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/mutex.c:19:6:Mutex_Lock	16	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/mutex.c:51:6:Mutex_Unlock	24	static,ignoring_inline_asm

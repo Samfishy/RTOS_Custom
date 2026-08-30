@@ -1,3 +1,3 @@
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/semaphores.c:12:6:Semaphore_Init	24	static
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/semaphores.c:19:6:Semaphore_Wait	24	static,ignoring_inline_asm
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/semaphores.c:39:6:Semaphore_Signal	24	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/semaphores.c:13:6:Semaphore_Init	24	static
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/semaphores.c:20:6:Semaphore_Wait	24	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/RTOS/semaphores.c:41:6:Semaphore_Signal	24	static,ignoring_inline_asm

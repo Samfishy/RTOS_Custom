@@ -9,6 +9,7 @@
 extern OS_Thread * volatile OS_Curr;
 extern uint32_t OS_ReadySet;
 
+
 void Semaphore_Init(Semaphore *sph, uint32_t max, uint32_t ini_cnt)
 {
 	sph->max_count = max    ;
@@ -23,6 +24,7 @@ void Semaphore_Wait(Semaphore *sph)
 	if(sph->count > 0U)
 	{
 		sph->count--;
+		__enable_irq();
 	}
 	else
 	{

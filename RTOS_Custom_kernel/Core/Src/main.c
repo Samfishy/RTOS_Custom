@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "Custom_RTOS.h"
 #include "semaphores.h"
+#include "mutex.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,6 +45,7 @@
 
 /* USER CODE BEGIN PV */
 Semaphore Signal_1;
+Mutex M1;
 
 uint32_t idle_stack[40];
 
@@ -55,6 +57,9 @@ OS_Thread ml2;
 
 uint32_t stack_ml3[40];
 OS_Thread ml3;
+
+uint32_t stack_ml4[40];
+OS_Thread ml4;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,17 +79,17 @@ void main_loop1(void)
 		for(int i =0; i < 1000; i ++)
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 1);
-			for(int i =0; i < 100; i ++)
+			for(int i =0; i < 200; i ++)
 			{
 				__NOP();
 			}
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
-			for(int i =0; i < 100; i ++)
+			for(int i =0; i < 200; i ++)
 			{
 				__NOP();
 			}
 		}
-		OS_Delay(100);
+		OS_Delay(200);
 	}
 }
 
@@ -92,7 +97,8 @@ void main_loop2(void)
 {
 	while(1)
 	{
-		Semaphore_Wait(&Signal_1);
+		//Semaphore_Wait(&Signal_1);
+		Mutex_Lock(&M1);
 		for(int i =0; i < 1000; i ++)
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 1);
@@ -106,8 +112,9 @@ void main_loop2(void)
 				__NOP();
 			}
 		}
-		OS_Delay(200);
-		Semaphore_Signal(&Signal_1);
+		Mutex_Unlock(&M1);
+		//Semaphore_Signal(&Signal_1);
+		OS_Delay(600);
 	}
 }
 
@@ -115,7 +122,6 @@ void main_loop3(void)
 {
 	while(1)
 	{
-		Semaphore_Wait(&Signal_1);
 		for(int i =0; i < 1000; i ++)
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 1);
@@ -129,8 +135,32 @@ void main_loop3(void)
 				__NOP();
 			}
 		}
-		OS_Delay(300);
-		Semaphore_Signal(&Signal_1);
+		OS_Delay(800);
+	}
+}
+
+void main_loop4(void)
+{
+	while(1)
+	{
+		Mutex_Lock(&M1);
+		//Semaphore_Wait(&Signal_1);
+		for(int i =0; i < 10000; i ++)
+		{
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 1);
+			for(int i =0; i < 400; i ++)
+			{
+				__NOP();
+			}
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 0);
+			for(int i =0; i < 400; i ++)
+			{
+				__NOP();
+			}
+		}
+		//Semaphore_Signal(&Signal_1);
+		Mutex_Unlock(&M1);
+		OS_Delay(1200);
 	}
 }
 /* USER CODE END 0 */
@@ -171,10 +201,12 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   Semaphore_Init(&Signal_1, 1, 1);
+  Mutex_init(&M1);
 
   OS_Thread_Start( &ml1, &main_loop1, stack_ml1, sizeof(stack_ml1), 0);
   OS_Thread_Start( &ml2, &main_loop2, stack_ml2, sizeof(stack_ml2), 1);
   OS_Thread_Start( &ml3, &main_loop3, stack_ml3, sizeof(stack_ml3), 2);
+  OS_Thread_Start( &ml4, &main_loop4, stack_ml4, sizeof(stack_ml4), 3);
 
   OS_start();
 
@@ -255,7 +287,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(On_Board_LED_GPIO_Port, On_Board_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : On_Board_LED_Pin */
   GPIO_InitStruct.Pin = On_Board_LED_Pin;
@@ -270,8 +302,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(User_Button_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB12 PB13 PB14 */
-  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14;
+  /*Configure GPIO pins : PB12 PB13 PB14 PB15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
