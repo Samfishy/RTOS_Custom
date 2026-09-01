@@ -12,8 +12,7 @@
 #include "Custom_RTOS.h"
 
 typedef struct {
-	uint32_t *t_addr;
-	void     *sp    ;
+	OS_Thread  *thread;
 	uint8_t priro   ;
 }Mutex_History;
 

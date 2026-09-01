@@ -37,11 +37,9 @@ void Mutex_Lock(Mutex *mt)
 				OS_ReadySet |=  (1UL << (OS_Curr->priro-1))  ;
 			}
 
-			mt->M1_h[OS_Curr->priro-1].t_addr = (uint32_t *)OS_Curr;
-			mt->M1_h[OS_Curr->priro-1].sp     = OS_Curr->sp        ;
+			mt->M1_h[OS_Curr->priro-1].thread = OS_Curr;
 			mt->M1_h[OS_Curr->priro-1].priro  = OS_Curr->priro     ;
 
-			OS_thread_array[mt->owner->priro] = OS_Curr  ;
 			mt->owner->priro = OS_Curr->priro            ;
 			OS_thread_array[mt->owner->priro] = mt->owner;
 		}
@@ -69,7 +67,7 @@ void Mutex_Unlock(Mutex *mt)
 		if(OS_Curr->priro != mt->orignal_prior)
 		{
 			uint8_t    tsk_prior = OS_Curr->priro;
-			OS_Thread* rep_tread = OS_thread_array[mt->orignal_prior];
+			OS_Thread* rep_tread = mt->M1_h[tsk_prior-1].thread ;
 
 			OS_Curr->priro  =  mt->orignal_prior          ;
 			OS_ReadySet    |=  (1UL << (OS_Curr->priro-1));

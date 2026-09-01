@@ -89,7 +89,7 @@ void main_loop1(void)
 				__NOP();
 			}
 		}
-		OS_Delay(50);
+		OS_Delay(100);
 	}
 }
 
@@ -114,7 +114,7 @@ void main_loop2(void)
 		}
 		//Semaphore_Signal(&Signal_1);
 		Mutex_Unlock(&M1);
-		OS_Delay(100);
+		OS_Delay(120);
 	}
 }
 
@@ -122,7 +122,8 @@ void main_loop3(void)
 {
 	while(1)
 	{
-		for(int i =0; i < 4000; i ++)
+		Mutex_Lock(&M1);
+		for(int i =0; i < 3000; i ++)
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 1);
 			for(int i =0; i < 400; i ++)
@@ -135,7 +136,8 @@ void main_loop3(void)
 				__NOP();
 			}
 		}
-		OS_Delay(400);
+		Mutex_Unlock(&M1);
+		OS_Delay(300);
 	}
 }
 
@@ -145,22 +147,22 @@ void main_loop4(void)
 	{
 		Mutex_Lock(&M1);
 		//Semaphore_Wait(&Signal_1);
-		for(int i =0; i < 8000; i ++)
+		for(int i =0; i < 4000; i ++)
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 1);
-			for(int i =0; i < 800; i ++)
+			for(int i =0; i < 600; i ++)
 			{
 				__NOP();
 			}
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 0);
-			for(int i =0; i < 800; i ++)
+			for(int i =0; i < 600; i ++)
 			{
 				__NOP();
 			}
 		}
 		//Semaphore_Signal(&Signal_1);
 		Mutex_Unlock(&M1);
-		OS_Delay(1600);
+		OS_Delay(700);
 	}
 }
 /* USER CODE END 0 */
