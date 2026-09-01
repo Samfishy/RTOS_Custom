@@ -12,13 +12,16 @@
 #include "Custom_RTOS.h"
 
 typedef struct {
-	OS_Thread *thread_addr ;
-	uint8_t   orignal_prior;
-}Owner_Details;
+	uint32_t *t_addr;
+	void     *sp    ;
+	uint8_t priro   ;
+}Mutex_History;
 
 typedef struct {
-	Owner_Details *own;
-	uint32_t wait_set;
+	OS_Thread    *owner       ;
+	uint8_t       orignal_prior;
+	uint32_t      wait_set     ;
+	Mutex_History M1_h[32]     ;
 }Mutex;
 
 void Mutex_init(Mutex *mt)  ;

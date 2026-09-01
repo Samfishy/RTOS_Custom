@@ -12,35 +12,43 @@ extern OS_Thread *OS_thread_array[32+1];
 
 void Mutex_init(Mutex *mt)
 {
-	mt->own = (Owner_Details *)0;
-	mt->wait_set = 0U;
+	mt->owner         = (OS_Thread *)0;
+	mt->orignal_prior = 0             ;
+	mt->wait_set      = 0U            ;
 }
 
 void Mutex_Lock(Mutex *mt)
 {
 	__disable_irq();
 
-	if(mt->own == (Owner_Details *)0U)
+	if(mt->owner == (OS_Thread *)0)
 	{
-		mt->own->thread_addr = OS_Curr;
+		mt->owner         = OS_Curr       ;
+		mt->orignal_prior = OS_Curr->priro;
 		__enable_irq();
 	}
 	else
 	{
-		if(OS_Curr->priro > mt->own->thread_addr->priro)
+		if(OS_Curr->priro > mt->owner->priro)
 		{
-			if(OS_ReadySet & (1UL << mt->own->thread_addr->priro))
+			if(OS_ReadySet & (1UL << (mt->owner->priro-1)))
 			{
-				OS_ReadySet &= ~(1UL << mt->own->thread_addr->priro);
-				OS_ReadySet |=  (1UL << OS_Curr->priro);
+				OS_ReadySet &= ~(1UL << (mt->owner->priro-1));
+				OS_ReadySet |=  (1UL << (OS_Curr->priro-1))  ;
 			}
-			mt->own->orignal_prior = mt->own->thread_addr->priro;
-			mt->own->thread_addr->priro = OS_Curr->priro;
+
+			mt->M1_h[OS_Curr->priro-1].t_addr = (uint32_t *)OS_Curr;
+			mt->M1_h[OS_Curr->priro-1].sp     = OS_Curr->sp        ;
+			mt->M1_h[OS_Curr->priro-1].priro  = OS_Curr->priro     ;
+
+			OS_thread_array[mt->owner->priro] = OS_Curr  ;
+			mt->owner->priro = OS_Curr->priro            ;
+			OS_thread_array[mt->owner->priro] = mt->owner;
 		}
 		else
 		{
-			OS_ReadySet  &= ~(1UL << OS_Curr->priro);
-			mt->wait_set |=  (1UL << OS_Curr->priro);
+			OS_ReadySet  &= ~(1UL << (OS_Curr->priro-1));
+			mt->wait_set |=  (1UL << (OS_Curr->priro-1));
 		}
 
 		__enable_irq();
@@ -52,33 +60,38 @@ void Mutex_Unlock(Mutex *mt)
 {
 	__disable_irq();
 
-	if(mt->own->thread_addr != OS_Curr)
+	if(mt->owner != OS_Curr)
 	{
 		__enable_irq();
 	}
 	else
 	{
-		if(OS_Curr->priro != mt->own->orignal_prior)
+		if(OS_Curr->priro != mt->orignal_prior)
 		{
-			OS_ReadySet    &= ~(1UL << OS_Curr->priro);
-			OS_Curr->priro  = mt->own->orignal_prior  ;
-			OS_ReadySet    |=  (1UL << OS_Curr->priro);
+			uint8_t    tsk_prior = OS_Curr->priro;
+			OS_Thread* rep_tread = OS_thread_array[mt->orignal_prior];
+
+			OS_Curr->priro  =  mt->orignal_prior          ;
+			OS_ReadySet    |=  (1UL << (OS_Curr->priro-1));
+
+			OS_thread_array[OS_Curr->priro] = OS_Curr  ;
+			OS_thread_array[tsk_prior]      = rep_tread;
 		}
 
 		if(mt->wait_set == 0U)
 		{
-			mt->own = (Owner_Details *)0;
+			mt->owner = (OS_Thread *)0;
 		}
 		else
 		{
-			uint8_t hPriro  = LOG2(mt->wait_set)-1;
-			mt->wait_set   &= ~(1UL << hPriro)    ;
-			OS_ReadySet    |=  (1UL << hPriro)    ;
+			uint8_t hPriro  = LOG2(mt->wait_set);
+			mt->wait_set   &= ~(1UL << (hPriro+1U));
+			OS_ReadySet    |=  ((1UL << hPriro+1U));
 
-			mt->own->thread_addr = OS_thread_array[hPriro];
-			OS_schd();
+			mt->owner = OS_thread_array[hPriro];
 		}
 
 		__enable_irq();
+		OS_schd();
 	}
 }
