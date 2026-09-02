@@ -1,8 +1,8 @@
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:75:6:main_loop1	24	static,ignoring_inline_asm
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:96:6:main_loop2	24	static,ignoring_inline_asm
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:121:6:main_loop3	24	static,ignoring_inline_asm
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:144:6:main_loop4	24	static,ignoring_inline_asm
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:174:5:main	16	static
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:228:6:SystemClock_Config	88	static
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:275:13:MX_GPIO_Init	48	static
-/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:327:6:Error_Handler	4	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:78:6:main_loop1	24	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:94:6:main_loop2	24	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:117:6:main_loop3	24	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:137:6:main_loop4	24	static,ignoring_inline_asm
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:162:5:main	16	static
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:216:6:SystemClock_Config	88	static
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:263:13:MX_GPIO_Init	48	static
+/home/samfishy/Documents/GitHub/RTOS_Custom/RTOS_Custom_kernel/Core/Src/main.c:315:6:Error_Handler	4	static,ignoring_inline_asm

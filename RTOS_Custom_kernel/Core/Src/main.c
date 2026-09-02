@@ -72,98 +72,86 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/* Ensure Signal_1 is initialized as a Binary Semaphore with an initial count of 1 */
+extern Semaphore Signal_1;
+
 void main_loop1(void)
 {
-	while(1)
-	{
-		for(int i =0; i < 1000; i ++)
-		{
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 1);
-			for(int i =0; i < 200; i ++)
-			{
-				__NOP();
-			}
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
-			for(int i =0; i < 200; i ++)
-			{
-				__NOP();
-			}
-		}
-		OS_Delay(100);
-	}
+    while (1)
+    {
+        /* Task 1: Highest priority periodic task (runs independently) */
+        for (int i = 0; i < 1000; i++)
+        {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 1);
+            for (int j = 0; j < 200; j++) { __NOP(); }
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, 0);
+            for (int j = 0; j < 200; j++) { __NOP(); }
+        }
+        OS_Delay(100);
+    }
 }
 
 void main_loop2(void)
 {
-	while(1)
-	{
-		//Semaphore_Wait(&Signal_1);
-		Mutex_Lock(&M1);
-		for(int i =0; i < 2000; i ++)
-		{
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 1);
-			for(int i =0; i < 200; i ++)
-			{
-				__NOP();
-			}
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 0);
-			for(int i =0; i < 200; i ++)
-			{
-				__NOP();
-			}
-		}
-		//Semaphore_Signal(&Signal_1);
-		Mutex_Unlock(&M1);
-		OS_Delay(120);
-	}
+    while (1)
+    {
+        /* Task 2 (High Priority): Requires shared resource */
+        /* Short initial delay to ensure Task 4 locks the semaphore first */
+        OS_Delay(50);
+
+        Semaphore_Wait(&Signal_1);
+
+        for (int i = 0; i < 2000; i++)
+        {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 1);
+            for (int j = 0; j < 200; j++) { __NOP(); }
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, 0);
+            for (int j = 0; j < 200; j++) { __NOP(); }
+        }
+
+        Semaphore_Signal(&Signal_1);
+        OS_Delay(200);
+    }
 }
 
 void main_loop3(void)
 {
-	while(1)
-	{
-		Mutex_Lock(&M1);
-		for(int i =0; i < 3000; i ++)
-		{
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 1);
-			for(int i =0; i < 400; i ++)
-			{
-				__NOP();
-			}
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 0);
-			for(int i =0; i < 400; i ++)
-			{
-				__NOP();
-			}
-		}
-		Mutex_Unlock(&M1);
-		OS_Delay(300);
-	}
+    while (1)
+    {
+        /* Task 3 (Medium Priority): CPU-intensive workload, NO mutex/semaphore */
+        /* Starts slightly after Task 2 has blocked on Task 4 */
+        OS_Delay(80);
+
+        for (int i = 0; i < 8000; i++)
+        {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 1);
+            for (int j = 0; j < 400; j++) { __NOP(); }
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, 0);
+            for (int j = 0; j < 400; j++) { __NOP(); }
+        }
+
+        OS_Delay(500);
+    }
 }
 
 void main_loop4(void)
 {
-	while(1)
-	{
-		Mutex_Lock(&M1);
-		//Semaphore_Wait(&Signal_1);
-		for(int i =0; i < 4000; i ++)
-		{
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 1);
-			for(int i =0; i < 600; i ++)
-			{
-				__NOP();
-			}
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 0);
-			for(int i =0; i < 600; i ++)
-			{
-				__NOP();
-			}
-		}
-		//Semaphore_Signal(&Signal_1);
-		Mutex_Unlock(&M1);
-		OS_Delay(700);
-	}
+    while (1)
+    {
+        /* Task 4 (Low Priority): Acquires semaphore immediately */
+        Semaphore_Wait(&Signal_1);
+
+        for (int i = 0; i < 12000; i++)
+        {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 1);
+            for (int j = 0; j < 600; j++) { __NOP(); }
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 0);
+            for (int j = 0; j < 600; j++) { __NOP(); }
+        }
+
+        Semaphore_Signal(&Signal_1);
+        OS_Delay(1000);
+    }
 }
 /* USER CODE END 0 */
 
